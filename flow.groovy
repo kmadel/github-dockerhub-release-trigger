@@ -24,4 +24,5 @@ node('docker') {
 	  	echo 'pusing ${repoName}:${tagName}'
 	  	image.push '${tagName}'
 	}
+    }
 }
