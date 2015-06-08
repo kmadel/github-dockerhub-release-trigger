@@ -14,7 +14,7 @@ node('docker') {
 	  	git url: '${gitUrl}'
 	  	checkout scm: [$class: 'GitSCM', 
 	  	  userRemoteConfigs: [[url: '${gitUrl}']], 
-        branches: [[name: 'refs/tags/${tagName}']]], changelog: false, poll: false
+	  	  branches: [[name: 'refs/tags/${tagName}']]], changelog: false, poll: false
 	  	def image = docker.build "${repoName}:${tagName}"
 	  	stage 'Push Image ${repoName}:${tagName}'
 	  	image.push '${tagName}'
