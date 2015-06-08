@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 
 stage 'Parse GitHub Payload'
 node {
-	print 'GitHub webhook payload: ${payload}'
+	print 'GitHub webhook payload: ' + payload
 	payloadObject = new JsonSlurper().parseText(payload)
  
 	def tagName = payloadObject.release.tag_name
