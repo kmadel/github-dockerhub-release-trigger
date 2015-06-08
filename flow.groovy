@@ -1,7 +1,7 @@
 import groovy.json.JsonSlurper
 
 stage 'Parse GitHub Payload'
-payloadObject = new JsonSlurper().parseText(${payload})
+payloadObject = new JsonSlurper().parseText(payload)
  
 def tagName = payloadObject.release.tag_name
 def repoName = payloadObject.repository.full_name
