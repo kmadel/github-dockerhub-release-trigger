@@ -2,16 +2,16 @@ import groovy.json.JsonSlurper
 
 stage 'Parse GitHub Payload'
 node {
-	echo 'GitHub webhook payload: ${payload}'
+	print 'GitHub webhook payload: ${payload}'
 	payloadObject = new JsonSlurper().parseText(payload)
  
 	def tagName = payloadObject.release.tag_name
 	def repoName = payloadObject.repository.full_name
 	def gitUrl = payloadObject.repository.git_url
 
-	echo "release tag: " + tagName
-	echo "repoName name: " + repoName
-	echo "gitUrl: " + gitUrl
+	print "release tag: " + tagName
+	print "repoName name: " + repoName
+	print "gitUrl: " + gitUrl
 }
 
 node('docker') {
